@@ -1,13 +1,14 @@
 ---
 layout: base
 ---
+{% assign ui = site.data.languages[page.lang] %}
 <main class="shell article" id="main">
   <header class="article-head">
-    <p class="meta">{% if page.topic %}<span>{{ page.topic }}</span><i aria-hidden="true"></i>{% endif %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y.%m.%d' }}</time>{% if page.spoilers %}<i aria-hidden="true"></i><span>含剧透</span>{% endif %}</p>
-    <h1>{{ page.title | escape }}{% if page.subtitle %}<span class="separator">：</span><span class="subtitle">{{ page.subtitle | escape }}</span>{% endif %}</h1>
+    <p class="meta">{% if page.topic %}<span>{{ page.topic }}</span><i aria-hidden="true"></i>{% endif %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: ui.date }}</time>{% if page.spoilers %}<i aria-hidden="true"></i><span>{{ ui.spoiler }}</span>{% endif %}</p>
+    <h1>{{ page.title | escape }}{% if page.subtitle %}<span class="separator">{{ ui.separator }}</span><span class="subtitle">{{ page.subtitle | escape }}</span>{% endif %}</h1>
   </header>
   <article class="prose">
     {{ content }}
   </article>
-  <p class="end-link"><a class="read-link" href="{{ '/' | relative_url }}">返回全部文章</a></p>
+  <p class="end-link"><a class="read-link" href="{{ ui.home | relative_url }}">{{ ui.return }}</a></p>
 </main>

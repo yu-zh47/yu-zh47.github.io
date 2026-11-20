@@ -1,13 +1,26 @@
-title: 个人札记
+title: Personal Notes
 author: Yue Zhao
-lang: zh-CN
+lang: en
 timezone: America/Los_Angeles
 permalink: /writing/:title/
 defaults:
   - scope:
       path: ""
+    values:
+      lang: en
+  - scope:
+      path: ""
       type: posts
     values:
       layout: article
+  - scope:
+      path: "zh"
+    values:
+      lang: zh-CN
+  - scope:
+      path: "zh"
+      type: posts
+    values:
+      permalink: /zh/writing/:title/
 exclude:
   - README.md

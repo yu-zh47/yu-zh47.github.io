@@ -1,0 +1,28 @@
+---
+layout: base
+---
+{% assign ui = site.data.languages[page.lang] %}
+{% assign posts = site.posts | where: "lang", page.lang %}
+<main class="shell home" id="main">
+  <header class="index-head">
+    <h1>{{ ui.title }}</h1>
+    <span>{% if page.lang == 'en' %}{{ posts.size }} {% if posts.size == 1 %}article{% else %}articles{% endif %}{% else %}{{ posts.size }} 篇文章{% endif %}</span>
+  </header>
+  {% for post in posts %}
+    <article class="entry{% if post.cover == 'melville' %} with-cover{% endif %}">
+      {% if post.cover == 'melville' %}
+        <div class="poster" aria-hidden="true">
+          <div class="tracks"></div><div class="ring"></div>
+          <span class="poster-top" lang="fr">Du rififi<br>chez les hommes</span>
+          <span class="poster-bottom" lang="fr">Le cercle<br>rouge</span>
+        </div>
+      {% endif %}
+      <div class="entry-text">
+        <p class="meta">{% if post.topic %}<span>{{ post.topic }}</span><i aria-hidden="true"></i>{% endif %}<time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: ui.date }}</time></p>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}{% if post.subtitle %}<span class="separator">{{ ui.separator }}</span><span class="subtitle">{{ post.subtitle | escape }}</span>{% endif %}</a></h2>
+        {% if post.description %}<p class="excerpt">{{ post.description | escape }}</p>{% endif %}
+        <a class="read-link" href="{{ post.url | relative_url }}" aria-label="{{ ui.read }} — {{ post.title | escape }}">{{ ui.read }}</a>
+      </div>
+    </article>
+  {% endfor %}
+</main>

@@ -1,0 +1,30 @@
+en:
+  title: Personal Notes
+  description: Personal notes by Yue Zhao.
+  home: /
+  nav: Main navigation
+  writing: Writing
+  skip: Skip to content
+  top: Back to top
+  read: Read the essay
+  return: All writing
+  spoiler: Contains spoilers
+  date: "%B %-d, %Y"
+  other: zh-CN
+  switch: 中文
+  separator: ": "
+zh-CN:
+  title: 个人札记
+  description: Yue Zhao 的个人札记。
+  home: /zh/
+  nav: 主导航
+  writing: 文章
+  skip: 跳到正文
+  top: 回到顶部
+  read: 阅读全文
+  return: 返回全部文章
+  spoiler: 含剧透
+  date: "%Y.%m.%d"
+  other: en
+  switch: English
+  separator: "："
