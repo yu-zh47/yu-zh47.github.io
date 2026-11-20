@@ -1,0 +1,26 @@
+---
+layout: base
+---
+<main class="shell home" id="main">
+  <header class="index-head">
+    <h1>{{ site.title }}</h1>
+    <span>{{ site.posts | size }} 篇文章</span>
+  </header>
+  {% for post in site.posts %}
+    <article class="entry{% if post.cover == 'melville' %} with-cover{% endif %}">
+      {% if post.cover == 'melville' %}
+        <div class="poster" aria-hidden="true">
+          <div class="tracks"></div><div class="ring"></div>
+          <span class="poster-top" lang="fr">Du rififi<br>chez les hommes</span>
+          <span class="poster-bottom" lang="fr">Le cercle<br>rouge</span>
+        </div>
+      {% endif %}
+      <div class="entry-text">
+        <p class="meta">{% if post.topic %}<span>{{ post.topic }}</span><i aria-hidden="true"></i>{% endif %}<time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time></p>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}{% if post.subtitle %}<span class="separator">：</span><span class="subtitle">{{ post.subtitle | escape }}</span>{% endif %}</a></h2>
+        {% if post.description %}<p class="excerpt">{{ post.description | escape }}</p>{% endif %}
+        <a class="read-link" href="{{ post.url | relative_url }}" aria-label="阅读全文《{{ post.title | escape }}》">阅读全文</a>
+      </div>
+    </article>
+  {% endfor %}
+</main>

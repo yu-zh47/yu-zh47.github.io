@@ -1,0 +1,13 @@
+title: 个人札记
+author: Yue Zhao
+lang: zh-CN
+timezone: America/Los_Angeles
+permalink: /writing/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+exclude:
+  - README.md
